@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Adjust the backend API URL as needed
+  baseURL: 'http://127.0.0.1:5000/api', // Adjust the backend API URL as needed
   headers: {
     'Content-Type': 'application/json',
   },
@@ -20,5 +20,9 @@ api.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+export const getSalesEvolution = (params) => {
+  return api.get('/supplier/sales-evolution', { params });
+};
 
 export default api;

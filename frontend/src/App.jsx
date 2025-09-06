@@ -36,17 +36,17 @@ function App() {
     <Router>
       <div className="App d-flex flex-column" style={{
         minHeight: '100vh',
-        backgroundColor: '#FDF6E3',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
         color: '#3E3E3E',
       }}>
         <Navbar />
-        <main className="flex-grow-1 container py-4">
+        <main className="flex-grow-1 py-4" style={{ width: '100%' }}>
           <AnimatedRoutes />
         </main>
 
         {/* Footer */}
         <footer className="bg-primary text-white py-4 mt-auto">
-          <div className="container">
+          <div className="container-fluid">
             <div className="row">
               <div className="col-md-4">
                 <h5>Artisanat Virtuel</h5>

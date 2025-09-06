@@ -67,7 +67,7 @@ function OrderHistory() {
 
   if (loading) {
     return (
-      <div className="container py-5">
+      <div className="container-fluid py-5">
         <div className="text-center">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Chargement...</span>
@@ -80,7 +80,7 @@ function OrderHistory() {
 
   if (error) {
     return (
-      <div className="container py-5">
+      <div className="container-fluid py-5">
         <div className="alert alert-danger" role="alert">
           <h4 className="alert-heading">Erreur</h4>
           <p>{error}</p>
@@ -105,7 +105,7 @@ function OrderHistory() {
   }
 
   return (
-    <div className="container py-5">
+    <div className="container-fluid py-5">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

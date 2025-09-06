@@ -41,46 +41,64 @@ function Home() {
 
   if (loading) {
     return (
-      <div className="container py-5">
+      <div className="container-fluid py-5">
         <div className="text-center">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Chargement...</span>
           </div>
-          <p className="mt-3" style={{ color: '#3E3E3E' }}>Chargement des produits...</p>
+          <p className="mt-3" style={{ color: '#000000' }}>Chargement des produits...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container py-5">
-      {/* Hero Section */}
-      <motion.div
-        className="text-center mb-5"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+    <div>
+      {/* Background Image Section */}
+      <div
+        className="hero-background"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1920&h=600&fit=crop&crop=center)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          height: '60vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative'
+        }}
       >
-        <h1 className="display-4 fw-bold mb-3" style={{ color: '#A0522D' }}>
-          Bienvenue sur Artisanat Virtuel
-        </h1>
-        <p className="lead mb-4" style={{ color: '#3E3E3E' }}>
-          Découvrez l'artisanat authentique et les produits uniques de nos créateurs passionnés
-        </p>
-        <motion.div
-          className="d-flex justify-content-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <Link to="/register" className="btn btn-lg px-4" style={{ backgroundColor: '#DAA520', borderColor: '#DAA520', color: 'white' }}>
-            <i className="fas fa-user-plus me-2"></i>Commencer
-          </Link>
-          <Link to="/login" className="btn btn-outline-secondary btn-lg px-4" style={{ borderColor: '#A0522D', color: '#A0522D' }}>
-            <i className="fas fa-sign-in-alt me-2"></i>Se connecter
-          </Link>
-        </motion.div>
-      </motion.div>
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(24, 119, 242, 0.4)',
+            zIndex: 1
+          }}
+        ></div>
+        <div className="text-center text-white" style={{ position: 'relative', zIndex: 2 }}>
+          <h1 className="display-3 fw-bold mb-3" style={{ color: '#ffffff', textShadow: '3px 3px 6px rgba(0,0,0,0.7)' }}>
+            Artisanat Virtuel
+          </h1>
+          <p className="lead mb-4" style={{ fontSize: '1.5rem', color: '#f8f9fa', textShadow: '2px 2px 4px rgba(0,0,0,0.6)' }}>
+            Découvrez l'artisanat authentique et les produits uniques
+          </p>
+          <div className="d-flex justify-content-center gap-3 mt-4">
+            <Link to="/register" className="btn btn-lg px-4" style={{ backgroundColor: '#ffffff', borderColor: '#ffffff', color: '#1877F2', fontWeight: 'bold' }}>
+              <i className="fas fa-user-plus me-2"></i>Commencer
+            </Link>
+            <Link to="/login" className="btn btn-outline-light btn-lg px-4" style={{ borderColor: '#ffffff', color: '#ffffff', fontWeight: 'bold' }}>
+              <i className="fas fa-sign-in-alt me-2"></i>Se connecter
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid py-5">
 
       {/* Products Section */}
       <motion.div
@@ -89,8 +107,8 @@ function Home() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.8 }}
       >
-        <h2 className="text-center mb-4" style={{ color: '#A0522D' }}>
-          <i className="fas fa-star me-2" style={{ color: '#DAA520' }}></i>Nos Produits Phares
+        <h2 className="text-center mb-4" style={{ color: '#1877F2' }}>
+          <i className="fas fa-star me-2" style={{ color: '#0d6efd' }}></i>Nos Produits Phares
         </h2>
 
         {products.length === 0 ? (
@@ -104,7 +122,7 @@ function Home() {
             </div>
           </div>
         ) : (
-          <div className="row g-4">
+          <div className="row g-4 justify-content-center">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -160,7 +178,7 @@ function Home() {
 
       {/* Features Section */}
       <motion.div
-        className="row g-4 mb-5"
+        className="row g-4 mb-5 justify-content-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
@@ -169,7 +187,7 @@ function Home() {
           <div className="card text-center h-100">
             <div className="card-body">
               <div className="mb-3">
-                <i className="fas fa-handshake fa-3x text-primary"></i>
+                <i className="fas fa-handshake fa-3x" style={{ color: '#1877F2' }}></i>
               </div>
               <h5 className="card-title">Artisans Locaux</h5>
               <p className="card-text text-muted">
@@ -182,7 +200,7 @@ function Home() {
           <div className="card text-center h-100">
             <div className="card-body">
               <div className="mb-3">
-                <i className="fas fa-shield-alt fa-3x text-success"></i>
+                <i className="fas fa-shield-alt fa-3x" style={{ color: '#0d6efd' }}></i>
               </div>
               <h5 className="card-title">Qualité Garantie</h5>
               <p className="card-text text-muted">
@@ -195,7 +213,7 @@ function Home() {
           <div className="card text-center h-100">
             <div className="card-body">
               <div className="mb-3">
-                <i className="fas fa-truck fa-3x text-warning"></i>
+                <i className="fas fa-truck fa-3x" style={{ color: '#1877F2' }}></i>
               </div>
               <h5 className="card-title">Livraison Rapide</h5>
               <p className="card-text text-muted">
@@ -205,6 +223,7 @@ function Home() {
           </div>
         </div>
       </motion.div>
+      </div>
     </div>
   );
 }
